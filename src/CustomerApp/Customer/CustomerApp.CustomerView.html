@@ -1,0 +1,26 @@
+<form  [formGroup]="CustomerModel.formCustomerGroup" (ngSubmit)= CustomerModel.onSubmit();  >
+
+Customer Code   :<input formControlName="CustomerCodeControl" type="text" ><br>
+Customer Name   :<input formControlName="CustomerNameControl" type="text" ><br>
+Customer Amount :<input  type="text" ><br>
+<input [disabled]="!(CustomerModel.formCustomerGroup.valid)" (click)= "Add()" type="button" value="Add">
+</form>
+<br>
+{{CustomerModel.CustomerCode}} <br>
+{{CustomerModel.CustomerName}} <br>
+{{CustomerModel.CustomerAmount}} 
+<table>
+    
+        <tr>
+            <td>Code</td>
+            <td>Name</td>
+            <td>Amount</td>
+        </tr>
+    
+    <tr *ngFor="let cust of CustomerModels">
+        <td>{{cust.CustomerCode}}</td>
+        <td>{{cust.CustomerName}}</td>
+        <td>{{cust.CustomerAmount}}</td>
+    </tr>
+
+</table>
